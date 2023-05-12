@@ -1,3 +1,4 @@
+# Run this in your terminal before running the program.
 pip install -r requirements.txt
 
 import random
@@ -5,9 +6,10 @@ import json
 
 
 def main():
+# This is an introduction to the program and shows the user their options.
     print("Welcome to the Mental Health Chatbot!")
     while True:
-        user_input = input("Type 'affirmation', 'activity', 'resources', or 'quit': ").lower()
+        user_input = input("Type 'affirmation', 'activity', 'resources', or 'quit': ").lower().strip()
         if user_input == "affirmation":
             print(get_positive_affirmation())
         elif user_input == "activity":
@@ -16,8 +18,9 @@ def main():
             print(get_mental_health_resources())
         elif user_input == "quit":
             break
+            #they can only leave this loop when a valid input is given.
         else:
-            print("Invalid input. Please try again.")
+            print("Invalid input. Please try again :)") 
 
 
 def get_positive_affirmation():
@@ -29,6 +32,7 @@ def get_positive_affirmation():
         "You can overcome any challenge."
     ]
     return random.choice(affirmations)
+      #This function can definately be evolved in the future to have more input subsections.
 
 
 def get_calming_activity():
@@ -44,12 +48,11 @@ def get_calming_activity():
 
 def get_mental_health_resources():
     resources = {
-        "Crisis Text Line": "Text HOME to 741741",
-        "National Suicide Prevention Lifeline": "1-800-273-TALK (1-800-273-8255)",
-        "SAMHSA National Helpline": "1-800-662-HELP (1-800-662-4357)",
+        "Crisis Text Line Canada": "Text CONNECT to 686868",
+        "Canada Suicide Prevention Service": "1-833-456-4566",
+        "Canadian Mental Health Association": "Find local support at https://www.cmha.ca/get-involved/find-your-cmha",
     }
     return json.dumps(resources, indent=2)
-
 
 if __name__ == "__main__":
     main()
