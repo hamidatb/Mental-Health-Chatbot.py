@@ -66,6 +66,7 @@ def print_mood_history():
     print("Your mood history:")
     for entry in mood_history:
         print(f"{entry['date']}: {entry['mood']}")
+        
 def get_positive_affirmation():
     affirmations = [
         "You are doing great!",
