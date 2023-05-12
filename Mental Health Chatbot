@@ -1,0 +1,57 @@
+pip install -r requirements.txt
+
+import random
+import json
+
+
+def main():
+    print("Welcome to the Mental Health Chatbot!")
+    while True:
+        user_input = input("Type 'affirmation', 'activity', 'resources', or 'quit': ").lower()
+        if user_input == "affirmation":
+            print(get_positive_affirmation())
+        elif user_input == "activity":
+            print(get_calming_activity())
+        elif user_input == "resources":
+            print(get_mental_health_resources())
+        elif user_input == "quit":
+            break
+        else:
+            print("Invalid input. Please try again.")
+
+
+def get_positive_affirmation():
+    affirmations = [
+        "You are doing great!",
+        "You are enough.",
+        "You are strong and resilient.",
+        "Believe in yourself and your abilities.",
+        "You can overcome any challenge."
+    ]
+    return random.choice(affirmations)
+
+
+def get_calming_activity():
+    activities = [
+        "Take deep breaths for 5 minutes.",
+        "Practice mindfulness meditation.",
+        "Take a walk in nature.",
+        "Listen to calming music.",
+        "Do some stretching or yoga."
+    ]
+    return random.choice(activities)
+
+
+def get_mental_health_resources():
+    resources = {
+        "Crisis Text Line": "Text HOME to 741741",
+        "National Suicide Prevention Lifeline": "1-800-273-TALK (1-800-273-8255)",
+        "SAMHSA National Helpline": "1-800-662-HELP (1-800-662-4357)",
+    }
+    return json.dumps(resources, indent=2)
+
+
+if __name__ == "__main__":
+    main()
+    
+    
