@@ -3,26 +3,69 @@
 
 import random
 import json
+import datetime
+
+# A list to store the user's mood history.
+mood_history = []
 
 
 def main():
-# This is an introduction to the program and shows the user their options.
-    print("Welcome to the Mental Health Chatbot!")
+    print("Welcome to the Mental Health Chatbot! We're here to help you feel better 😊")
     while True:
-        user_input = input("Type 'affirmation', 'activity', 'resources', or 'quit': ").lower().strip()
-        if user_input == "affirmation":
+        user_input = input("Type 'mood', 'affirmation', 'activity', 'resources', 'history', or 'quit': ").lower().strip()
+      
+        # Input your mood and receive a suggestion based on it
+        if user_input == "mood":
+            mood = input("How are you feeling today? (e.g., happy, sad, stressed, etc.): ").lower().strip()
+            track_mood(mood)
+            print("Thank you for sharing your mood. Here's a suggestion for you:")
+            if mood in ["stressed", "anxious", "sad", "angry"]:
+                print(get_calming_activity())
+            else:
+                print(get_positive_affirmation())
+        
+        # Get a random positive affirmation
+        elif user_input == "affirmation":
             print(get_positive_affirmation())
+        
+        # Get a random calming activity
         elif user_input == "activity":
             print(get_calming_activity())
+        
+        # Get mental health resources
         elif user_input == "resources":
             print(get_mental_health_resources())
+        
+        # Check your mood history
+        elif user_input == "history":
+            print_mood_history()
+        
+        # Exit the chatbot
         elif user_input == "quit":
             break
-            #they can only leave this loop when a valid input is given.
+        
+        # Handle invalid input
         else:
-            print("Invalid input. Please try again :)") 
+            print("Oops! Invalid input. Please try again 😊") 
 
 
+# Add a mood entry to mood_history
+def track_mood(mood):
+    mood_entry = {
+        "mood": mood,
+        "date": str(datetime.date.today())
+    }
+    mood_history.append(mood_entry)
+
+
+# Print the user's mood history
+def print_mood_history():
+    if not mood_history:
+        print("No mood history available. Share your mood to start tracking!")
+        return
+    print("Your mood history:")
+    for entry in mood_history:
+        print(f"{entry['date']}: {entry['mood']}")
 def get_positive_affirmation():
     affirmations = [
         "You are doing great!",
