@@ -1,0 +1,23 @@
+import pytest
+from project import get_positive_affirmation, get_calming_activity, get_mental_health_resources
+
+
+def test_get_positive_affirmation():
+    result = get_positive_affirmation()
+    assert isinstance(result, str)
+    assert len(result) > 0
+
+
+def test_get_calming_activity():
+    result = get_calming_activity()
+    assert isinstance(result, str)
+    assert len(result) > 0
+
+
+def test_get_mental_health_resources():
+    result = get_mental_health_resources()
+    assert isinstance(result, str)
+    assert len(result) > 0
+    resources = json.loads(result)
+    assert isinstance(resources, dict)
+    assert len(resources) > 0
