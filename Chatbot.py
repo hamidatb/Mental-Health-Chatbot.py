@@ -1,5 +1,3 @@
-# Run this in your terminal before running the program.
-# pip install -r requirements.txt
 
 import random
 import json
