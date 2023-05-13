@@ -1,7 +1,5 @@
 # Mental Health Chatbot Explanation
 
-#### Video Demo:  `<URL HERE>`
-
 #### Description:
 
 The Mental Health Chatbot is a simple Python-based interactive chatbot designed to provide mental health support. This chatbot is not a replacement for professional help, but it can provide immediate resources, positive affirmations, calming activities, and mood tracking.
