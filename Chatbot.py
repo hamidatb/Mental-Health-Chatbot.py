@@ -18,11 +18,14 @@ def main():
             track_mood(mood)
             print("Thank you for sharing your mood. Here's a suggestion for you:")
             if mood in ["stressed", "anxious", "sad", "angry"]:
-                print("I'm sorry to hear that you're feeling that way. :(")
                 print(get_calming_activity())
+                print("I hope my suggestion helps, and you have a better day :). You are worthy, loved, and amazing. ")
+
             else:
                 print("That's awesome! Here's another dose of positivity for you: ")
                 print(get_positive_affirmation())
+                print("I hope my affirmation helps, and you have a better day, we are not our worst days. :) ")
+
         
         # Get a random positive affirmation
         elif user_input == "affirmation":
